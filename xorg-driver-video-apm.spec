@@ -1,24 +1,26 @@
 Summary:	X.org video driver for Alliance ProMotion video adapters
 Summary(pl):	Sterownik obrazu X.org do kart graficznych Alliance ProMotion
 Name:		xorg-driver-video-apm
-Version:	1.0.1.2
+Version:	1.0.1.3
 Release:	0.1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC2/driver/xf86-video-apm-%{version}.tar.bz2
-# Source0-md5:	a66a949b150f1a7e86c74396cb1a57e6
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/driver/xf86-video-apm-%{version}.tar.bz2
+# Source0-md5:	50843ecd9f3e51a02156c6d5fd21a7d1
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
+# temporary
+BuildRequires:	sed >= 4.0
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xextproto-devel
-#BuildRequires:	xxf86rush (wrong pkgconfig test should be xf86rushproto???)
-BuildRequires:	xorg-util-util-macros >= 0.99.1
+BuildRequires:	xorg-proto-xf86rushproto-devel
+BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRequires:	xorg-xserver-server-devel >= 0.99.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,6 +37,9 @@ Obs³uguje karty PCI i ISA oparte na nastêpuj±cych uk³adach: ProMotion
 %prep
 %setup -q -n xf86-video-apm-%{version}
 
+# wrong test
+sed -i -e 's/xxf86rush/xf86rushproto/' configure.ac
+
 %build
 %{__libtoolize}
 %{__aclocal}
@@ -50,8 +55,7 @@ Obs³uguje karty PCI i ISA oparte na nastêpuj±cych uk³adach: ProMotion
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	drivermandir=%{_mandir}/man4
+	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/xorg/modules/*/*.la
 
@@ -62,4 +66,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/apm_drv.so
-%{_mandir}/man4/apm.4x*
+%{_mandir}/man4/apm.4*
