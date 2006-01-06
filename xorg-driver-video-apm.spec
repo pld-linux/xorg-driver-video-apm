@@ -1,12 +1,12 @@
 Summary:	X.org video driver for Alliance ProMotion video adapters
 Summary(pl):	Sterownik obrazu X.org do kart graficznych Alliance ProMotion
 Name:		xorg-driver-video-apm
-Version:	1.0.1.3
+Version:	1.0.1.5
 Release:	0.1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/driver/xf86-video-apm-%{version}.tar.bz2
-# Source0-md5:	50843ecd9f3e51a02156c6d5fd21a7d1
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/driver/xf86-video-apm-%{version}.tar.bz2
+# Source0-md5:	98ad4f6eeb934255bb9ff06ba459484d
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -64,6 +64,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog README
+%doc COPYING ChangeLog README
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/apm_drv.so
 %{_mandir}/man4/apm.4*
