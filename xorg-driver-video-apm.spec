@@ -1,5 +1,5 @@
 Summary:	X.org video driver for Alliance ProMotion video adapters
-Summary(pl.UTF-8):   Sterownik obrazu X.org do kart graficznych Alliance ProMotion
+Summary(pl.UTF-8):	Sterownik obrazu X.org do kart graficznych Alliance ProMotion
 Name:		xorg-driver-video-apm
 Version:	1.1.1
 Release:	0.1
