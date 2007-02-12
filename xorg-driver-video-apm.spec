@@ -1,5 +1,5 @@
 Summary:	X.org video driver for Alliance ProMotion video adapters
-Summary(pl):	Sterownik obrazu X.org do kart graficznych Alliance ProMotion
+Summary(pl.UTF-8):   Sterownik obrazu X.org do kart graficznych Alliance ProMotion
 Name:		xorg-driver-video-apm
 Version:	1.1.1
 Release:	0.1
@@ -30,9 +30,9 @@ X.org video driver for Alliance ProMotion video adapters. It supports
 PCI and ISA video cards based on the following chipsets: ProMotion
 6420, ProMotion 6422, AT24, AT3D, AT25.
 
-%description -l pl
+%description -l pl.UTF-8
 Sterownik obrazu X.org do kart graficznych Alliance ProMotion.
-Obs³uguje karty PCI i ISA oparte na nastêpuj±cych uk³adach: ProMotion
+ObsÅ‚uguje karty PCI i ISA oparte na nastÄ™pujÄ…cych ukÅ‚adach: ProMotion
 6420, ProMotion 6422, AT24, AT3D, AT25.
 
 %prep
