@@ -2,11 +2,12 @@ Summary:	X.org video driver for Alliance ProMotion video adapters
 Summary(pl.UTF-8):	Sterownik obrazu X.org do kart graficznych Alliance ProMotion
 Name:		xorg-driver-video-apm
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-apm-%{version}.tar.bz2
 # Source0-md5:	ac7e05f0dfc7e02cac0bf17b9eb89b11
+Patch0:		%{name}-buildfix.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -42,6 +43,7 @@ Obsługuje karty PCI i ISA oparte na następujących układach: ProMotion
 
 %prep
 %setup -q -n xf86-video-apm-%{version}
+%patch0 -p1
 
 # wrong test
 sed -i -e 's/xxf86rush/xf86rushproto/' configure.ac
