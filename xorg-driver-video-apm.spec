@@ -14,6 +14,7 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
 # temporary
 BuildRequires:	sed >= 4.0
+BuildRequires:	xorg-lib-libpciaccess-devel
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
