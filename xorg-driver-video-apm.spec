@@ -8,23 +8,20 @@ Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-apm-%{version}.tar.bz2
 # Source0-md5:	a3743a971b3acb7de3d2eefc8b1a4834
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
-# temporary
-BuildRequires:	sed >= 4.0
-BuildRequires:	xorg-lib-libpciaccess-devel
+BuildRequires:	xorg-lib-libpciaccess-devel >= 0.8.0
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
-BuildRequires:	xorg-proto-xextproto-devel
-BuildRequires:	xorg-proto-xf86rushproto-devel
-BuildRequires:	xorg-util-util-macros >= 0.99.2
+BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
+BuildRequires:	xorg-util-util-macros >= 1.8
 BuildRequires:	xorg-xserver-server-devel >= 1.0.99.901
-BuildRequires:  rpmbuild(macros) >= 1.389
-%requires_xorg_xserver_videodrv
+BuildRequires:	rpmbuild(macros) >= 1.389
+%{?requires_xorg_xserver_videodrv}
 Requires:	xorg-xserver-server >= 1.0.99.901
 Obsoletes:	X11-driver-apm < 1:7.0.0
 Obsoletes:	XFree86-Alliance
@@ -44,17 +41,13 @@ Obsługuje karty PCI i ISA oparte na następujących układach: ProMotion
 %prep
 %setup -q -n xf86-video-apm-%{version}
 
-# wrong test
-sed -i -e 's/xxf86rush/xf86rushproto/' configure.ac
-
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure \
-	--disable-static
+%configure
 
 %{__make}
 
